@@ -1,0 +1,94 @@
+.box-shadow-1{
+    -webkit-box-shadow: 3px 3px 3px;
+    -moz-box-shadow: 3px 3px 3px;
+    box-shadow: 3px 3px 3px;
+  }
+  .box-shadow-2{
+    -webkit-box-shadow:0 0 10px #333;
+    -moz-box-shadow:0 0 10px #333;
+    box-shadow:0 0 10px #333;
+  }
+  .box-shadow-3{
+    -webkit-box-shadow:0 0 10px rgba(0, 204, 204, .5);
+    -moz-box-shadow:0 0 10px rgba(0, 204, 204, .5);
+    box-shadow:0 0 10px rgba(0, 204, 204, .5);
+  }
+  .box-shadow-4{
+    -webkit-box-shadow:0 0 10px 15px #0CC;
+    -moz-box-shadow:0 0 10px 15px #0CC;
+    box-shadow:0 0 10px 15px #0CC;
+  }
+  .box-shadow-5{
+    -webkit-box-shadow:inset 0 0 10px #0CC;
+    -moz-box-shadow:inset 0 0 10px #0CC;
+    box-shadow:inset 0 0 10px #0CC;
+  }
+  .box-shadow-6{
+      box-shadow:-60px 0 60px #000, /*左边阴影*/
+  }
+  .box-shadow-7{
+      box-shadow:5px 5px 1px 1px #222,
+      0 0 5px 5px gray;
+  }
+  .box-shadow-8{
+      box-shadow:0 0 10px 20px red,
+      0 0 10px 5px black;
+  }
+  .box-shadow-9{
+      box-shadow: 0 0 0 1px red;
+  }
+
+  .frosted-glass{
+    background-image: src('src/bg.jpg');
+
+    float: left;
+
+    filter:blur(10px);
+    -webkit-filter:blur(10px);
+    -moz-filter:blur(10px);
+    -ms-filter:blur(10px);
+    -o-filter:blur(10px);
+
+    position: fixed;
+    width:102vw;
+    height:102vh;
+
+    top:-1vh;
+    left:-1vw;
+
+}
+
+.transparent_class {   
+  filter:alpha(opacity=50);   
+  -moz-opacity:0.5;   
+  -khtml-opacity: 0.5;   
+  opacity: 0.5;   
+} 
+
+.section{
+  filter:alpha(opacity=70);   
+  -moz-opacity:0.7;   
+  -khtml-opacity: 0.7;   
+  opacity: 0.7;   
+
+  -webkit-box-shadow:0 0 10px #333;
+  -moz-box-shadow:0 0 10px #333;
+  box-shadow:0 0 10px #333;
+}
+
+::-webkit-scrollbar
+{
+	width: 16px;
+	height: 16px;
+	background-color: #F5F5F5;
+}
+ 
+/*定义滚动条轨道 内阴影+圆角*/
+    ::-webkit-scrollbar {
+    width: 10px;
+    height: 5px;
+    background-color: #bf360c;
+}
+    ::-webkit-scrollbar-thumb:vertical{
+    background-color: #ff5722;
+}
