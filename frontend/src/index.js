@@ -9,22 +9,35 @@ import {
   addText,
   addProcess,
   addAlert,
-  addInfo
+  addInfo,
+  addMD5
 } from './dom'
 import { getValue, MD5Encode } from './encrypt'
 import { totalmem } from 'os'
 // require('bootstrap')
 
 let root
-
+let md5
 async function main () {
   root = document.getElementById('root')
   setRoot(root.parentElement)
-  connector.totalRequest()
 
   connector.test()
+
+  root.appendChild(addMD5('addMD5', () => {
+    console.log('here')
+    md5 = document.getElementById('input_MD5').value
+    console.log(md5)
+    connector.totalRequest()
+  }))
+
   connector.router.push('total', (message) => {
     message = JSON.parse(message)
+    root.appendChild(addMD5('addMD5'), () => {
+      md5 = document.getElementById('input_MD5').value
+      console.log(md5)
+    })
+    root.innerHTML = ''
     root.appendChild(addProcess(message.process, 3))
 
     initDom()

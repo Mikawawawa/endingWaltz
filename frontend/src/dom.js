@@ -167,3 +167,16 @@ export function addInfo (id = 'info_input', callback = () => {}) {
   element.append(addButton('提交', callback))
   return element
 }
+
+export function addMD5 (id = 'info_input', callback = () => {}) {
+  let element = addTitle('请输入识别码', '识别码位于卡片的加密扇区')
+  element.id = id
+  element.innerHTML +=
+`<div class="input-group mb-4">
+  <input type="text" id="input_MD5" class="form-control" placeholder="使用小写字母" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+`
+
+  element.append(addButton('提交', callback))
+  return element
+}

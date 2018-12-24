@@ -30,8 +30,8 @@ for (let i = 1; i < 5; i++) {
       status: md5_find&&multi_find,
       info: md5_find&&multi_find?result.info.quez:"ERR"
     };
-
-    Poster.client.publish("push/luckycheck", JSON.stringify(payload));
+    console.log(message)
+    Poster.client.publish(`push/luckycheck${message.id}`, JSON.stringify(payload));
   });
 }
 
@@ -45,7 +45,7 @@ router.request("ordinary_check", async message => {
     status: result,
     info: result?"正确":"回答不正确"
   };
-  Poster.client.publish("push/ordinarycheck", JSON.stringify(payload));
+  Poster.client.publish(`push/ordinarycheck${message.id}`, JSON.stringify(payload));
 });
 
 router.request("total",async message=>{
