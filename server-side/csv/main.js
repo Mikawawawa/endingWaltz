@@ -16,10 +16,12 @@ function initLucky() {
       output.forEach(element => {
         if (element[0].length === 5) {
           element[0] = element[0].substr(1, 4);
+        }else if(element[0].length===3){
+          element[0]='0'+element[0]
         }
         dataAPI.execute(
           "insert into `lucky` (`md5`,`lucky`,`origin`) values (?,?,?)",
-          [md5(index.toString()), element[0], index++]
+          [element[2], element[0], element[1]]
         );
         console.log(element[0] + answer);
         console.log(md5(element[0] + answer));

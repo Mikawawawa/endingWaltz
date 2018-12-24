@@ -59,7 +59,7 @@ client.on('connect', function () {
 
 function luckyRequest (index, lucky, choice) {
   client.publish(
-    `request/lucky_check${MD5Encode(index)}`,
+    `request/lucky_check${index}`,
     RSAEncode(
       JSON.stringify({
         id,

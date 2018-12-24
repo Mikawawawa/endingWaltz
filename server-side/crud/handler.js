@@ -8,7 +8,7 @@ const router = new Mrouter();
 let decrypt = new JSEncrypt(); // 新建JSEncrypt对象
 decrypt.setPrivateKey(require("./config").private);
 
-for (let i = 1; i < 5; i++) {
+for (let i = 1; i <= 25; i++) {
   console.log(i.toString(), md5(i.toString()));
   router.request(`lucky_check${md5(i.toString())}`, async message => {
     console.log("lucky");
@@ -59,7 +59,10 @@ router.request("total",async message=>{
 router.request("submit",async message=>{
   message = decrypt.decrypt(message);
   message = JSON.parse(message);
-  await dataAPI.execute('insert into `suclist` (`lucky`,`name`,`tele`)values(?,?,?)',[message.lucky,message.name,message.tele])
+  if((await dataAPI.execute('select count(*) as length from `suclist`')).info.length<=3){
+    let result=await dataAPI.execute('insert into `suclist` (`lucky`,`name`,`tele`)values(?,?,?)',[message.lucky,message.name,message.tele])
+    console.log(result)
+  }
 })
 
 async function md5_lucky_find(md5, lucky) {

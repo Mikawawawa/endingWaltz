@@ -63,7 +63,7 @@ class Router {
     }
   }
   push (path, callback) {
-    console.log(path, callback)
+    // console.log(path, callback)
     this.pushPath[path] = callback
   }
   request (path, callback) {
