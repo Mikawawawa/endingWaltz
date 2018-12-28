@@ -42,9 +42,9 @@ function initQuez() {
       let index = 1;
       output.forEach(element => {
         dataAPI.execute("insert into `quez` (`index`,`quez`)values(?,?)", [
-          index++,
+          index,
           // marked(fs.readFileSync(`./${element[0].toString()}`).toString())
-          marked(fs.readFileSync("./quez1.md").toString())
+          marked(fs.readFileSync("./quez/"+(index++)+".md").toString())
         ]);
       });
     }
