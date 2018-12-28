@@ -43,11 +43,11 @@
 
     float: left;
 
-    filter:blur(10px);
-    -webkit-filter:blur(10px);
-    -moz-filter:blur(10px);
-    -ms-filter:blur(10px);
-    -o-filter:blur(10px);
+    filter:blur(15px);
+    -webkit-filter:blur(15px);
+    -moz-filter:blur(15px);
+    -ms-filter:blur(15px);
+    -o-filter:blur(15px);
 
     position: fixed;
     width:102vw;

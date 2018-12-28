@@ -1,6 +1,6 @@
 // import _ from 'lodash'
-import { format } from 'upath'
-import marked from 'marked'
+// import { format } from 'upath'
+// import marked from 'marked'
 
 export function setRoot (element) {
   // let element = document.getElementById(id)

@@ -1,21 +1,19 @@
 import MRouter from './mqtt/router'
 import { MD5Encode, RSAEncode, getValue } from './encrypt'
 import connect from 'mqtt'
-import { addInfo, addProcess, addSection, addTextView, addText, addAlert, addButton, addForm } from './dom'
+import { addInfo, addSection, addTextView, addText, addAlert, addButton, addForm } from './dom'
 const client = connect('ws://101.132.116.211:1884')
 let id
 
 client.on('connect', function () {
   // console.log('okkkkkkkk')
-  console.log('SERVER', 'LINK', new Date().toLocaleString())
+  console.log('SERVER', 'LINK START AT', new Date().toString(), 'WITH ID', client.options.clientId)
   client.subscribe('push/#')
   client.subscribe('test')
-  id = client.options.clientId
-  console.log(id)
 
   router.push(`luckycheck${id}`, async message => {
     message = JSON.parse(message)
-    console.log(message)
+    // console.log(message)
     if (message.status) {
       let root = document.getElementById('root')
       // root.appendChild(addProcess(2, 3))

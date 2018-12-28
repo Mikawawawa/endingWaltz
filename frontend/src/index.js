@@ -2,23 +2,23 @@ import connector from './connect'
 
 import {
   addForm,
-  addTextView,
   setRoot,
   addSection,
   addButton,
   addText,
   addProcess,
-  addAlert,
-  addInfo,
   addMD5
 } from './dom'
-import { getValue, MD5Encode } from './encrypt'
-import { totalmem } from 'os'
+import { getValue } from './encrypt'
+// import { totalmem } from 'os'
 // require('bootstrap')
 
 let root
 let md5
 async function main () {
+  let bg = document.getElementById('background')
+  bg.src = `./src/bg${Math.floor(Math.random() * 5) + 1}.jpg`
+
   root = document.getElementById('root')
   setRoot(root.parentElement)
 
@@ -26,7 +26,7 @@ async function main () {
 
   connector.router.push('total', (message) => {
     message = JSON.parse(message)
-    console.log(message)
+    // console.log(message)
     root.innerHTML = ''
     root.appendChild(addProcess(message.process, 3))
 
