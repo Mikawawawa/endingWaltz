@@ -11,6 +11,7 @@
   "dependencies": {
     "csv-parse": "^4.2.0",
     "js-md5": "^0.7.3",
+    "marked": "^0.5.2",
     "mysql": "^2.16.0"
   }
 }

@@ -26,6 +26,7 @@ async function main () {
 
   connector.router.push('total', (message) => {
     message = JSON.parse(message)
+    console.log(message)
     root.innerHTML = ''
     root.appendChild(addProcess(message.process, 3))
 

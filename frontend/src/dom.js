@@ -1,5 +1,6 @@
-import _ from 'lodash'
+// import _ from 'lodash'
 import { format } from 'upath'
+import marked from 'marked'
 
 export function setRoot (element) {
   // let element = document.getElementById(id)
@@ -57,18 +58,38 @@ export function addForm (id, length) {
   // console.log(element.childNodes)
   element.childNodes.forEach((child) => {
     let index = ++key
+
     let length = child.parentElement.childElementCount
-    child.addEventListener('keyup', function () {
-      if (index === length) {
-        // console.log('final')
-        child.blur()
-      } else {
-        child.parentElement.childNodes[index].focus()
+    child.addEventListener('keyup', function (e) {
+      e.preventDefault()
+      if (checkIligle(e.key) === true) {
+        if (index === length) {
+          child.blur()
+        } else {
+          if (window.event.keyCode === 37) {
+            child.parentElement.childNodes[index - 2].focus()
+
+            child.parentElement.childNodes[index - 2].value = ''
+          }
+          if (window.event.keyCode >= 48 && window.event.keyCode <= 90) {
+            child.value = e.key
+            child.parentElement.childNodes[index].focus()
+          }
+        }
       }
     })
   })
 
   return element
+}
+
+function checkIligle (nubmer) {
+  var re = /^[0-9a-zA-Z]*$/g
+  if (!re.test(nubmer)) {
+    return false
+  } else {
+    return true
+  }
 }
 
 export function addTitle (title, content = '') {
@@ -85,7 +106,7 @@ export function addTitle (title, content = '') {
 export function addText (text = '') {
   let element = document.createElement('p')
   element.className = 'lead'
-  element.innerText = text
+  element.innerHTML = text
   return element
 }
 
@@ -110,13 +131,13 @@ export function addAlert (position, type = 'success', text = '我就是个提示
 }
 
 export function addTextView (text = '不可复制') {
-  let element = document.createElement('input')
+  let element = document.createElement('div')
   element.type = 'text'
-  element.className = 'form-control'
+  element.className = 'card card-body'
   element.name = 'bigtext'
   element.autofocus = false
   // element.style = 'height:200px;width:80%;'
-  element.value = text
+  element.innerHTML = text
   element.readOnly = true
   document.oncontextmenu = function () {
     return false

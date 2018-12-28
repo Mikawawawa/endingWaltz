@@ -3,6 +3,7 @@ const dataAPI = require("./data/connect");
 const answer = require("./config.json").answer;
 const md5 = require("js-md5");
 const fs = require("fs");
+const marked= require("marked")
 
 function initLucky() {
   const input = fs.readFileSync("./lucky.csv");
@@ -42,12 +43,14 @@ function initQuez() {
       output.forEach(element => {
         dataAPI.execute("insert into `quez` (`index`,`quez`)values(?,?)", [
           index++,
-          element
+          // marked(fs.readFileSync(`./${element[0].toString()}`).toString())
+          marked(fs.readFileSync("./quez1.md").toString())
         ]);
       });
     }
   );
 }
 
-initLucky();
+// initLucky();
 initQuez();
+// console.log(fs.readFileSync("./quez1.md").toString())
