@@ -49,10 +49,10 @@ router.request("ordinary_check", async message => {
 });
 
 router.request("total",async message=>{
-  let result=await dataAPI.execute("select count(*) as length from `suclist`")
-  console.log(result.info.length)
+  let result=await dataAPI.execute("select count(*) as process from `suclist`")
+  console.log(new Date().toISOString(),"PROCESS",result.info.process)
   Poster.client.publish("push/total",JSON.stringify({
-    process:result.info.length
+    process:result.info.process
   }))
 })
 
