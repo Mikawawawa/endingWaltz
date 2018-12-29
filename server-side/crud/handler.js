@@ -52,7 +52,7 @@ router.request("total",async message=>{
   let result=await dataAPI.execute("select count(*) as process from `suclist`")
   console.log(new Date().toISOString(),"PROCESS",result.info.process)
   Poster.client.publish("push/total",JSON.stringify({
-    process:result.info.process
+    process:result.info.process?result.info.process:0
   }))
 })
 

@@ -7,6 +7,7 @@ const connection = mysql.createConnection({
   password: "aptx4869",
   database: "endingwaltz",
   charset: "UTF8_GENERAL_CI",
+  useConnectionPooling: true,
   debug: false
 });
 // const connection = mysql.createConnection(config.mysql);
